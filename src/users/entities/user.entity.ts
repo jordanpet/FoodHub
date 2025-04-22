@@ -2,6 +2,8 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, Up
 import { Roles } from 'src/utility/common/user.role.enum';
 import { CategoryEntity } from 'src/categories/entities/category.entity';
 import { ProductEntity } from 'src/products/entities/product.entity';
+import { ReviewEntity } from 'src/reviews/entities/review.entity';
+import { OrderEntity } from 'src/orders/entities/order.entity';
 // import { Address } from './address.entity';
 
 @Entity({name:'users'})
@@ -35,4 +37,13 @@ export class UserEntity {
 
   @OneToMany(()=> ProductEntity, (product) => product.addedBy)
   products: ProductEntity[];
+
+  @OneToMany(() => ReviewEntity, (review) => review.user)
+  reviews: ReviewEntity[];
+
+  @OneToMany(()=>OrderEntity,(order)=>order.updateBy)
+  ordersUpdateBy:OrderEntity[];
+
+  @OneToMany(()=>OrderEntity,(order)=> order.user)
+  orders:OrderEntity[];
 }

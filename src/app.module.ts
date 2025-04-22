@@ -9,12 +9,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CurrentUserMiddleware} from './utility/common/middleware/current-user.middleware';
 import { CategoriesModule } from './categories/categories.module';
 import { ProductsModule } from './products/products.module';
+import { ReviewsModule } from './reviews/reviews.module';
+import { OrdersModule } from './orders/orders.module';
 
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true,
-}), DatabaseModule, FoodModule, UsersModule, CategoriesModule, ProductsModule],
+}), DatabaseModule, FoodModule, UsersModule, CategoriesModule, ProductsModule, ReviewsModule, OrdersModule],
   controllers: [],
   providers: [],
 })
