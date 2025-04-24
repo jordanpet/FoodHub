@@ -9,7 +9,7 @@ import { CurrentUser } from 'src/utility/decorator/current_user.decorator';
 import { AuthenticationGuard } from 'src/utility/guards/authntication.guard';
 import { AuthorizeRoles } from 'src/utility/decorator/authorize-roles.decorator';
 import { AuthorizeGuard } from 'src/utility/guards/authorization.guard';
-import { Roles } from 'src/utility/common/user.role.enum';
+import { Roles } from 'src/orders/enums/user.role.enum';
 
 @Controller('users')
 export class UsersController {

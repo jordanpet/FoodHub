@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn, JoinTable } from 'typeorm';
-import { Roles } from 'src/utility/common/user.role.enum';
+import { Roles } from 'src/orders/enums/user.role.enum';
 import { CategoryEntity } from 'src/categories/entities/category.entity';
 import { ProductEntity } from 'src/products/entities/product.entity';
 import { ReviewEntity } from 'src/reviews/entities/review.entity';
@@ -42,8 +42,8 @@ export class UserEntity {
   reviews: ReviewEntity[];
 
   @OneToMany(()=>OrderEntity,(order)=>order.updateBy)
-  ordersUpdateBy:OrderEntity[];
+  ordersUpdateBy:OrderEntity[]
 
   @OneToMany(()=>OrderEntity,(order)=> order.user)
-  orders:OrderEntity[];
+  orders:OrderEntity[]
 }

@@ -7,7 +7,7 @@ import { CurrentUser } from 'src/utility/decorator/current_user.decorator';
 import { UserEntity } from 'src/users/entities/user.entity';
 import { ReviewEntity } from './entities/review.entity';
 import { AuthorizeGuard } from 'src/utility/guards/authorization.guard';
-import { Roles } from 'src/utility/common/user.role.enum';
+import { Roles } from 'src/orders/enums/user.role.enum';
 
 @Controller('reviews')
 export class ReviewsController {

@@ -33,4 +33,5 @@ export class ProductEntity {
 
       @OneToMany(()=>OrderProductsEntity,(orderProduct)=>orderProduct.product)
       products:OrderProductsEntity[];
+  stock: any;
 }

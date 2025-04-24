@@ -6,7 +6,7 @@ import { CurrentUser } from 'src/utility/decorator/current_user.decorator';
 import { UserEntity } from 'src/users/entities/user.entity';
 import { AuthenticationGuard } from 'src/utility/guards/authntication.guard';
 import { AuthorizeGuard } from 'src/utility/guards/authorization.guard';
-import { Roles } from 'src/utility/common/user.role.enum';
+import { Roles } from 'src/orders/enums/user.role.enum';
 import { CategoryEntity } from './entities/category.entity';
 
 @Controller('categories')

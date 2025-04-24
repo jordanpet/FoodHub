@@ -7,7 +7,7 @@ import { CurrentUser } from 'src/utility/decorator/current_user.decorator';
 import { UserEntity } from 'src/users/entities/user.entity';
 import { OrderEntity } from './entities/order.entity';
 import { AuthorizeGuard } from 'src/utility/guards/authorization.guard';
-import { Roles } from 'src/utility/common/user.role.enum';
+import { Roles } from 'src/orders/enums/user.role.enum';
 import { UpdateOrderStatusDto } from './dto/update-order-status.dto';
 
 @Controller('orders')
@@ -35,6 +35,12 @@ export class OrdersController {
   @Body()updateOrderStatusDto: UpdateOrderStatusDto, 
   @CurrentUser()CurrentUser:UserEntity) {
     return await this.ordersService.update(+id, updateOrderStatusDto,CurrentUser);
+  }
+
+  @Put('cancel/:id')
+  @UseGuards(AuthenticationGuard, AuthorizeGuard([Roles.ADMIN]))
+  async cancelled(@Param('id') id:string,@CurrentUser() currentUser:UserEntity){
+    return await this.ordersService.cancelled(+id,currentUser);
   }
 
   @Delete(':id')

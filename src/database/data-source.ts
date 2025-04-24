@@ -26,5 +26,6 @@ export const dataSourceOptions: DataSourceOptions = {
 };
 
  const AppDataSource = new DataSource(dataSourceOptions);
+ AppDataSource.initialize();
 export default AppDataSource;
   
